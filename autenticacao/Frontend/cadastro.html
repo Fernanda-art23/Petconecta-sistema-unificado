@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+   
+    
+</head>
+
+<body>
+    <div class="cadastro">
+
+        <label for="nome_completo">Nome Completo</label>
+        <input type="text" id="nome_completo">
+        
+        <label for="email">E-mail</label>
+        <input type="email" id="email">
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha">
+
+        <button class="botao_cadastro" id="btn_cadastro">Cadastrar</button>  
+        <br>
+        <br>
+        <button class="botao_login" id="botao_login">ir para Login</button> 
+        <br> 
+
+        <p id="resultado">O resultado irá aparecer aqui</p>
+        
+
+    </div>
+</body>
+
+<script>
+    //Criar um evento para quando clicar no botão de cadastro
+    document.getElementById("btn_cadastro").addEventListener("click", async ()=>{
+        // alert("Clicou no botão de cadastro!")
+        //primeira etapa - pegar as informações dos inputs
+
+        
+        const nome_completo = document.getElementById("nome_completo").value
+        const email = document.getElementById("email").value 
+        const senha = document.getElementById("senha").value 
+
+        
+        // segunda etapa = fazer a requisição para o back-end
+        
+        const resposta = await fetch(`http://localhost:3000/cadastro`,{
+            method:"POST",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                "nome_completo": nome_completo,
+               "email": email,
+               "senha": senha,
+               
+            })
+
+        })
+
+
+        // terceira etapa - pegar a resposta do back-end
+        
+        if(resposta.ok == true){
+            const dados = await resposta.json()
+            document.getElementById("resultado").innerText = dados.resposta 
+        }else{
+
+        }
+    })
+
+
+    document.getElementById("botao_login").addEventListener("click", ()=>{
+        window.location.href = "../Login/login.html"
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+   
+    <title>Login de Usuário</title>
+</head>
+<body>
+    <div class="Login"> 
+        <h1>Login</h1>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email">
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha">
+
+        <button id="btn_login" class="btn-base btn-login">Entrar</button>
+      
+        <p id="resultado">Mensagens de feedback aparecerão aqui.</p>
+    </div>
+
+    <script>
+       
+        document.getElementById("btn_login").addEventListener("click", async () => {
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+
+            
+            const resposta = await fetch(`http://localhost:3000/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "email": email,
+                    "senha": senha
+                })
+            });
+
+            const dados = await resposta.json();
+            const resultadoElement = document.getElementById("resultado");
+
+           
+            if (resposta.ok) {
+                resultadoElement.innerText = dados.mensagem;
+                
+            } else {
+                resultadoElement.innerText = "Erro: " + dados.mensagem;
+            }
+        });
+    </script>
+</body>
+</html>

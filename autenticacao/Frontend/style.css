@@ -1,0 +1,211 @@
+/* style.css */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f5f0; /* Fundo bege claro */
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-color: #6a4f4b; /* Marrom escuro */
+    color: #fff;
+    padding: 10px 20px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d4c4a8; /* Bege claro */
+}
+
+/* Main section */
+.secao-bem-vindo {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.secao-bem-vindo h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #6a4f4b;
+}
+
+.secao-bem-vindo p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.secao-acoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-acao {
+    background-color: #fff;
+    border: 2px solid #d4c4a8; /* Bege */
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    color: #6a4f4b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-acao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icone-bege {
+    font-size: 2em;
+    color: #d4c4a8;
+    margin-bottom: 10px;
+}
+
+/* Formulários gerais */
+.Login, .cadastro, .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.Login h1, .cadastro h1 {
+    margin-bottom: 20px;
+    color: #6a4f4b;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #6a4f4b;
+    outline: none;
+}
+
+/* Botões */
+.btn-base {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 10px 0;
+}
+
+.btn-login, .botao_cadastro {
+    background-color: #6a4f4b;
+    color: #fff;
+}
+
+.btn-login:hover, .botao_cadastro:hover {
+    background-color: #5a3f3b;
+    transform: translateY(-2px);
+}
+
+.btn-fale-conosco {
+    background-color: #d4c4a8;
+    color: #6a4f4b;
+}
+
+.btn-fale-conosco:hover {
+    background-color: #c4b498;
+    transform: translateY(-2px);
+}
+
+.botao_login {
+    background-color: #f9f5f0;
+    color: #6a4f4b;
+    border: 1px solid #6a4f4b;
+}
+
+.botao_login:hover {
+    background-color: #6a4f4b;
+    color: #fff;
+}
+
+/* Resultado */
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #6a4f4b;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .secao-acoes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-acao {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+}
